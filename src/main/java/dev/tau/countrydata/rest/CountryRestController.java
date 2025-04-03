@@ -1,15 +1,23 @@
 package dev.tau.countrydata.rest;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import dev.tau.countrydata.entity.Country;
+import dev.tau.countrydata.repository.CountryRepository;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
 public class CountryRestController {
 
-    @GetMapping("/country")
-    public String sayHello() {
-        return "Hello";
+    private final CountryRepository countryRepository;
+
+    public CountryRestController(CountryRepository countryRepository) {
+        this.countryRepository = countryRepository;
+    }
+
+    @GetMapping("/countries")
+    public List<Country> getAllCountries() {
+        return countryRepository.findAll();
     }
 }
