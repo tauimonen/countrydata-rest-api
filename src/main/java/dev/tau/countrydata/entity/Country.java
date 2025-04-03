@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Country {
 
     @Id
-    @Column(name = "Code", length = 3)
+    @Column(name = "Code", length = 3, nullable = false)
     private String code;
 
     @Column(name = "Name", nullable = false)
@@ -19,10 +19,13 @@ public class Country {
     @Column(name = "Region", nullable = false)
     private String region;
 
-    @Column(name = "SurfaceArea")
+    @Column(name = "SurfaceArea", nullable = false)
     private Double surfaceArea;
 
-    @Column(name = "Population")
+    @Column(name = "IndepYear")
+    private Integer indepYear;
+
+    @Column(name = "Population", nullable = false)
     private Integer population;
 
     @Column(name = "LifeExpectancy")
@@ -31,41 +34,166 @@ public class Country {
     @Column(name = "GNP")
     private Double gnp;
 
-    @Column(name = "LocalName")
+    @Column(name = "GNPOld")
+    private Double gnpOld;
+
+    @Column(name = "LocalName", length = 45, nullable = false)
     private String localName;
 
-    @Column(name = "GovernmentForm")
+    @Column(name = "GovernmentForm", length = 45, nullable = false)
     private String governmentForm;
 
-    // Getterit ja setterit
-    public String getCode() { return code; }
-    public void setCode(String code) { this.code = code; }
+    @Column(name = "HeadOfState", length = 60)
+    private String headOfState;
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    @Column(name = "Capital")
+    private Integer capital;
 
-    public String getContinent() { return continent; }
-    public void setContinent(String continent) { this.continent = continent; }
+    @Column(name = "Code2", length = 2, nullable = false)
+    private String code2;
 
-    public String getRegion() { return region; }
-    public void setRegion(String region) { this.region = region; }
+    public Country() {
+    }
 
-    public Double getSurfaceArea() { return surfaceArea; }
-    public void setSurfaceArea(Double surfaceArea) { this.surfaceArea = surfaceArea; }
+    public Country(String code, String code2, Integer capital, String headOfState, String governmentForm,
+                   String localName, Double gnpOld, Double gnp, Integer population, Double lifeExpectancy,
+                   Integer indepYear, Double surfaceArea, String region, String continent, String name) {
+        this.code = code;
+        this.code2 = code2;
+        this.capital = capital;
+        this.headOfState = headOfState;
+        this.governmentForm = governmentForm;
+        this.localName = localName;
+        this.gnpOld = gnpOld;
+        this.gnp = gnp;
+        this.population = population;
+        this.lifeExpectancy = lifeExpectancy;
+        this.indepYear = indepYear;
+        this.surfaceArea = surfaceArea;
+        this.region = region;
+        this.continent = continent;
+        this.name = name;
+    }
 
-    public Integer getPopulation() { return population; }
-    public void setPopulation(Integer population) { this.population = population; }
+    public String getCode() {
+        return code;
+    }
 
-    public Double getLifeExpectancy() { return lifeExpectancy; }
-    public void setLifeExpectancy(Double lifeExpectancy) { this.lifeExpectancy = lifeExpectancy; }
+    public void setCode(String code) {
+        this.code = code;
+    }
 
-    public Double getGnp() { return gnp; }
-    public void setGnp(Double gnp) { this.gnp = gnp; }
+    public String getCode2() {
+        return code2;
+    }
 
-    public String getLocalName() { return localName; }
-    public void setLocalName(String localName) { this.localName = localName; }
+    public void setCode2(String code2) {
+        this.code2 = code2;
+    }
 
-    public String getGovernmentForm() { return governmentForm; }
-    public void setGovernmentForm(String governmentForm) { this.governmentForm = governmentForm; }
+    public Integer getCapital() {
+        return capital;
+    }
+
+    public void setCapital(Integer capital) {
+        this.capital = capital;
+    }
+
+    public String getHeadOfState() {
+        return headOfState;
+    }
+
+    public void setHeadOfState(String headOfState) {
+        this.headOfState = headOfState;
+    }
+
+    public String getGovernmentForm() {
+        return governmentForm;
+    }
+
+    public void setGovernmentForm(String governmentForm) {
+        this.governmentForm = governmentForm;
+    }
+
+    public String getLocalName() {
+        return localName;
+    }
+
+    public void setLocalName(String localName) {
+        this.localName = localName;
+    }
+
+    public Double getGnpOld() {
+        return gnpOld;
+    }
+
+    public void setGnpOld(Double gnpOld) {
+        this.gnpOld = gnpOld;
+    }
+
+    public Double getGnp() {
+        return gnp;
+    }
+
+    public void setGnp(Double gnp) {
+        this.gnp = gnp;
+    }
+
+    public Double getLifeExpectancy() {
+        return lifeExpectancy;
+    }
+
+    public void setLifeExpectancy(Double lifeExpectancy) {
+        this.lifeExpectancy = lifeExpectancy;
+    }
+
+    public Integer getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(Integer population) {
+        this.population = population;
+    }
+
+    public Integer getIndepYear() {
+        return indepYear;
+    }
+
+    public void setIndepYear(Integer indepYear) {
+        this.indepYear = indepYear;
+    }
+
+    public Double getSurfaceArea() {
+        return surfaceArea;
+    }
+
+    public void setSurfaceArea(Double surfaceArea) {
+        this.surfaceArea = surfaceArea;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public String getContinent() {
+        return continent;
+    }
+
+    public void setContinent(String continent) {
+        this.continent = continent;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
+
 
