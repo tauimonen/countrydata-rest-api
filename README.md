@@ -14,6 +14,12 @@ A Spring Boot application providing a RESTful API for managing and retrieving in
 - **MySQL** - Used to store country data.
 - **Spring Security** - Basic authentication for API access.
 
+## Database
+
+The database used in this application is based on the MySQL example database called `world`. This database includes information about countries, cities, and other geographic data.
+
+You can download the example database from the official MySQL documentation site here: [MySQL Example Database - World](https://dev.mysql.com/doc/index-other.html)
+
 ## API Endpoints
 
 ### 1. `GET /api/countries`
