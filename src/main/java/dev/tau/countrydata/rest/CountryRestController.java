@@ -2,6 +2,7 @@ package dev.tau.countrydata.rest;
 
 import dev.tau.countrydata.entity.Country;
 import dev.tau.countrydata.repository.CountryRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +30,17 @@ public class CountryRestController {
                 .orElseThrow(() -> new CountryNotFoundException("Country with code " + countryCode + " not found"));
 
         return ResponseEntity.ok(country);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<CountryErrorResponse> handleCountryNotFoundException(CountryNotFoundException exc) {
+        CountryErrorResponse errorResponse = new CountryErrorResponse();
+
+        errorResponse.setStatus(HttpStatus.NOT_FOUND.value());
+        errorResponse.setMessage(exc.getMessage());
+        errorResponse.setTimeStamp(System.currentTimeMillis());
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
 
