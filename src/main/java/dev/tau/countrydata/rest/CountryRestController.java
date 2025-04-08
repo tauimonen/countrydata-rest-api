@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -24,9 +25,11 @@ public class CountryRestController {
 
     @GetMapping("/countries/{countryCode}")
     public ResponseEntity<Country> getCountryByCountryCode(@PathVariable String countryCode) {
-        return countryRepository.findById(countryCode)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        Country country = countryRepository.findById(countryCode)
+                .orElseThrow(() -> new CountryNotFoundException("Country with code " + countryCode + " not found"));
+
+        return ResponseEntity.ok(country);
     }
+
 
 }
