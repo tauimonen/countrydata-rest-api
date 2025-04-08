@@ -32,16 +32,4 @@ public class CountryRestController {
         return ResponseEntity.ok(country);
     }
 
-    @ExceptionHandler
-    public ResponseEntity<CountryErrorResponse> handleCountryNotFoundException(CountryNotFoundException exc) {
-        CountryErrorResponse errorResponse = new CountryErrorResponse();
-
-        errorResponse.setStatus(HttpStatus.NOT_FOUND.value());
-        errorResponse.setMessage(exc.getMessage());
-        errorResponse.setTimeStamp(System.currentTimeMillis());
-
-        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
-    }
-
-
 }
