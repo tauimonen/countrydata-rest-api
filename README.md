@@ -1,3 +1,5 @@
+[![Project Status: Work in Progress](https://img.shields.io/badge/Project%20Status-Work%20in%20Progress-orange.svg)](https://img.shields.io/badge/Project%20Status-Work%20in%20Progress-orange.svg)
+
 # Country Data API
 
 A Spring Boot application providing a RESTful API for managing and retrieving information about countries. The API allows users to access details such as population, surface area, government form, capital city, and more.
