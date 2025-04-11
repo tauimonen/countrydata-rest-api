@@ -2,6 +2,8 @@
 
 # Country Data API
 
+> 🔧 *Latest update*: Introduced a dedicated **Service layer** (`CountryService`) to separate business logic from the controller. This improves structure, scalability, and testability.  
+
 A Spring Boot application providing a RESTful API for managing and retrieving information about countries. The API allows users to access details such as population, surface area, government form, capital city, and more.
 
 ## Table of Contents
@@ -12,9 +14,13 @@ A Spring Boot application providing a RESTful API for managing and retrieving in
 
 ## Technology Stack
 - **Spring Boot** - Framework for building the RESTful application.
-- **JPA (Java Persistence API)** - For managing the database entities.
+- **Spring Web** - REST API creation.
+- **Spring Data JPA** - ORM layer for database interaction.
 - **MySQL** - Used to store country data.
 - **Spring Security** - Basic authentication for API access.
+- **JUnit 5** - Unit and integration testing framework.
+- **Mockito** - Mocking framework for unit testing.
+- **Spring Boot Test** - Utilities for testing Spring applications (`@WebMvcTest`, `@SpringBootTest`, etc.)
 
 ## Database
 
