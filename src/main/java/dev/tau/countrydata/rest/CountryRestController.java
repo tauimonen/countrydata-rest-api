@@ -1,35 +1,30 @@
 package dev.tau.countrydata.rest;
 
 import dev.tau.countrydata.entity.Country;
-import dev.tau.countrydata.repository.CountryRepository;
-import org.springframework.http.HttpStatus;
+import dev.tau.countrydata.service.CountryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
 public class CountryRestController {
 
-    private final CountryRepository countryRepository;
+    private final CountryService countryService;
 
-    public CountryRestController(CountryRepository countryRepository) {
-        this.countryRepository = countryRepository;
+    public CountryRestController(CountryService countryService) {
+        this.countryService = countryService;
     }
 
     @GetMapping("/countries")
     public List<Country> getAllCountries() {
-        return countryRepository.findAll();
+        return countryService.getAllCountries();
     }
 
     @GetMapping("/countries/{countryCode}")
     public ResponseEntity<Country> getCountryByCountryCode(@PathVariable String countryCode) {
-        Country country = countryRepository.findById(countryCode)
-                .orElseThrow(() -> new CountryNotFoundException("Country with code " + countryCode + " not found"));
-
+        Country country = countryService.getCountryByCode(countryCode);
         return ResponseEntity.ok(country);
     }
-
 }
