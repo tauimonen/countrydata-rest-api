@@ -7,13 +7,15 @@ import dev.tau.countrydata.service.CountryService;
 import dev.tau.countrydata.service.CountryServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+@SpringBootTest
+@TestPropertySource(locations = "classpath:application-test.properties")
 class CountryServiceImplTest {
 
     private CountryRepository countryRepository;

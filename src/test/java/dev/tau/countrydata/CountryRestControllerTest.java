@@ -4,11 +4,15 @@ import dev.tau.countrydata.entity.Country;
 import dev.tau.countrydata.repository.CountryRepository;
 import dev.tau.countrydata.rest.CountryRestController;
 import dev.tau.countrydata.service.CountryService;
+import io.github.cdimascio.dotenv.Dotenv;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestPropertySource;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,7 +20,10 @@ import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@TestPropertySource(locations = "classpath:application-test.properties")
 public class CountryRestControllerTest {
+
+    // Load environment variables
 
     @Mock
     private CountryRepository countryRepository;  // Mock CountryRepository
