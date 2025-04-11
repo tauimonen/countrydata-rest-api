@@ -23,8 +23,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestPropertySource(locations = "classpath:application-test.properties")
 public class CountryRestControllerTest {
 
-    // Load environment variables
-
     @Mock
     private CountryRepository countryRepository;  // Mock CountryRepository
 
