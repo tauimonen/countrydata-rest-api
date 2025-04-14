@@ -25,7 +25,7 @@ public class CountrydataApplication {
 		System.setProperty("SPRING_JPA_SHOW_SQL", dotenv.get("SPRING_JPA_SHOW_SQL"));
 		System.setProperty("SPRING_JPA_DATABASE_PLATFORM", dotenv.get("SPRING_JPA_DATABASE_PLATFORM"));
 		System.setProperty("SPRING_JPA_HIBERNATE_NAMING_PHYSICAL_STRATEGY", dotenv.get("SPRING_JPA_HIBERNATE_NAMING_PHYSICAL_STRATEGY"));
-
+		System.setProperty("JWT_SECRET", dotenv.get("JWT_SECRET"));
 
 		SpringApplication.run(CountrydataApplication.class, args);
 	}
